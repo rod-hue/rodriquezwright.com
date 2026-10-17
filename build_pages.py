@@ -17,7 +17,7 @@ a{color:inherit}img{max-width:100%;display:block}
 .top ul{list-style:none;display:flex;gap:clamp(12px,2vw,28px);flex-wrap:wrap}.top li a{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none}
 .top li a:hover,.top li a[aria-current]{color:var(--gold2)}
 .hero{position:relative;min-height:72vh;display:grid;align-items:end;overflow:hidden;isolation:isolate}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;z-index:-2;filter:saturate(.95)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;z-index:-2;filter:saturate(.95)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--bg) 4%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.15))}
 .hero-in{padding:0 var(--pad) clamp(40px,7vh,80px);max-width:1200px}
 .kick{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
@@ -104,7 +104,7 @@ urls = []
 urls.append(page('about', 'About Rodriquez Wright II | Strategist, Publisher, Artist',
   'Rodriquez Wright II is a Nashville-based political strategist, founder of Leo Operations, publisher of Washington DC Magazine and the recording artist Rod212.',
   'About', 'Rodriquez <em>Wright II</em>', 'Political strategist. Publisher. Recording artist. One person behind three very different rooms.',
-  'img/portrait.jpg', 'Rodriquez Wright II',
+  'img/rodriquez-wright-ii-portrait.jpg', 'Rodriquez Wright II',
   """
 <p><strong>Rodriquez Wright II</strong> is an American political organizer, media entrepreneur and hip-hop recording artist based in Nashville, Tennessee. He founded the political consulting and media firm <a href="https://leooperations.com/">Leo Operations</a>, he is the founder and editor-in-chief of <a href="https://www.washingtondcmagazine.com/">Washington DC Magazine</a>, and he records and produces music under the name <a href="/rod212/">Rod212</a>.</p>
 <div class="facts"><div><b>14 years</b><span>in campaigns</span></div><div><b>25 states</b><span>worked</span></div><div><b>1,000+</b><span>events photographed</span></div><div><b>2.8M+</b><span>Spotify streams as Rod212</span></div></div>
