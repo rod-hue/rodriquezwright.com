@@ -376,6 +376,80 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 .lb-close{position:absolute;top:20px;right:var(--pad);background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:10px 18px;font:500 13px var(--sans);cursor:pointer}
 .lb-yt{color:var(--dim)}
 .lb-yt:hover{color:var(--gold)}
+
+/* STUDIO */
+.studio .lead2{font-family:var(--serif);font-size:clamp(28px,3vw,46px);line-height:1.12;max-width:24ch;margin-top:clamp(30px,5vh,50px)}
+.studio .lead2 .it{color:var(--gold)}
+.studio .sub{color:var(--dim);max-width:52ch;margin-top:18px;font-size:clamp(17px,1.3vw,20px)}
+.lens{position:relative;margin-top:clamp(40px,7vh,80px)}
+.lens-pin{min-height:100svh;display:flex;align-items:center;justify-content:center}
+.lens-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,22px);width:100%;max-width:min(1300px,calc((100svh - 140px) * 2.1))}
+.lens-card{position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);will-change:transform}
+.lens-card img{width:100%;height:100%;object-fit:cover}
+.lens-card figcaption{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.lens-card:nth-child(5) img{object-position:50% 25%}
+@media (max-width:760px){.lens-grid{grid-template-columns:repeat(2,1fr)}.lens-pin{min-height:auto}}
+.wall-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin:clamp(80px,12vh,140px) 0 26px}
+.wall-head h3{font-weight:800;font-size:clamp(32px,3.6vw,56px);letter-spacing:-.035em;line-height:1}
+.wall-head h3 .it{color:var(--gold)}
+.wall{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,15vw,240px);gap:10px}
+.tile{position:relative;overflow:hidden;border-radius:6px;background:#111;cursor:pointer}
+.tile video,.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s}
+.tile video{filter:saturate(.9) brightness(.85)}
+.tile:hover video{transform:scale(1.06);filter:saturate(1.1) brightness(1)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,0) 55%);pointer-events:none}
+.tile .cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2}
+.tile .cap b{display:block;font-weight:700;font-size:clamp(15px,1.2vw,19px);line-height:1.2;letter-spacing:-.01em}
+.tile .cap span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.wide{grid-column:span 2}
+.tile.tall{grid-row:span 2}
+@media (max-width:860px){.wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.tile.big{grid-column:span 2;grid-row:span 2}.tile.tall{grid-row:span 1}}
+.yt-link{display:inline-flex;gap:10px;align-items:center;color:var(--gold);font-weight:600}
+
+/* GALLERY */
+.gallery{position:relative;border-top:1px solid var(--line);overflow:clip;padding:clamp(80px,12vh,140px) 0}
+.gal-word{position:sticky;top:50%;transform:translateY(-50%);z-index:3;text-align:center;pointer-events:none;mix-blend-mode:difference;height:0;overflow:visible}
+.gal-word span{display:block;transform:translateY(-50%);font-weight:900;font-size:clamp(80px,17vw,300px);letter-spacing:-.06em;line-height:.8;color:#fff;white-space:nowrap}
+.gal-word em{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+.gal-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,22px);padding:0 var(--pad);align-items:start}
+.gal-col{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,22px);will-change:transform}
+.gal-col img{width:100%;border-radius:6px;display:block}
+.gal-col:nth-child(2){margin-top:18vh}
+@media (max-width:760px){.gal-cols{grid-template-columns:repeat(2,1fr)}.gal-col:nth-child(3){display:none}}
+.gal-foot{text-align:center;margin-top:60px;color:var(--dim)}
+
+/* HIRE */
+.hire{border-top:1px solid var(--line)}
+.hire-title{font-weight:900;font-size:clamp(54px,10vw,170px);letter-spacing:-.055em;line-height:.86;text-transform:uppercase}
+.hire-title .it{text-transform:none;color:var(--gold);letter-spacing:-.02em}
+.hire-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);margin:clamp(30px,5vh,60px) 0 clamp(50px,8vh,90px);align-items:end}
+.hire-intro p{color:var(--dim);font-size:clamp(17px,1.35vw,21px)}
+.hire-intro p strong{color:var(--ink);font-weight:500}
+@media (max-width:860px){.hire-intro{grid-template-columns:1fr}}
+.svc{list-style:none;border-top:1px solid var(--line)}
+.svc a{display:grid;grid-template-columns:80px 1fr 1.1fr 40px;gap:24px;align-items:center;padding:clamp(22px,3.4vh,34px) 0;border-bottom:1px solid var(--line);transition:padding .4s,color .3s}
+.svc a:hover{padding-left:18px}
+.svc .n{font-family:var(--mono);font-size:12px;color:var(--gold)}
+.svc .t{font-weight:800;font-size:clamp(26px,3.2vw,52px);letter-spacing:-.035em;line-height:1}
+.svc .d{color:var(--dim);font-size:16px}
+.svc .ar{font-size:26px;color:var(--gold);transition:transform .3s}
+.svc a:hover .ar{transform:translateX(6px) rotate(-45deg)}
+@media (max-width:760px){.svc a{grid-template-columns:44px 1fr 24px;gap:12px}.svc .d{grid-column:2/3}.svc .ar{grid-row:1;grid-column:3}}
+.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:16/10;z-index:90;pointer-events:none;border-radius:8px;overflow:hidden;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.peek.on{opacity:1;transform:scale(1)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media (pointer:coarse){.peek{display:none}}
+.cta-big{margin-top:clamp(60px,10vh,110px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.cta-big .mono{color:var(--gold)}
+.cta-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:clamp(200px,22vw,300px);aspect-ratio:1;border-radius:50%;background:var(--gold);color:#0a0a0b;font-weight:800;font-size:clamp(18px,1.6vw,24px);letter-spacing:-.01em;line-height:1.1;text-align:center;padding:30px;transition:transform .4s}
+.cta-btn:hover{transform:scale(1.05)}
+.cta-btn::before{content:"";position:absolute;inset:-14px;border:1px solid rgba(212,169,87,.4);border-radius:50%;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.92);opacity:1}100%{transform:scale(1.25);opacity:0}}
+.booking{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-top:clamp(60px,10vh,110px)}
+.booking .track{display:inline-flex;gap:40px;animation:mq 30s linear infinite}
+.booking span{font-weight:900;font-size:clamp(30px,4vw,64px);letter-spacing:-.04em;text-transform:uppercase}
+.booking span.o{color:transparent;-webkit-text-stroke:1px var(--gold)}
 </style>
 </head>
 <body>
@@ -398,11 +472,12 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
   <a class="mark" href="#top" aria-label="Rodriquez Wright II, home">RW II</a>
   <ul>
     <li><a href="#strategist">Strategist</a></li>
+    <li><a href="#studio">Studio</a></li>
     <li><a href="#publisher">Publisher</a></li>
     <li><a href="#artist">Artist</a></li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#press">Press</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#hire" style="color:var(--gold);opacity:1">Work with me</a></li>
   </ul>
 </nav>
 
@@ -509,6 +584,18 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
       <div class="tl-end"><p>The next chapter is <span class="it gold">yours to write.</span></p></div>
     </div>
   </div>
+</section>
+
+
+<!-- STUDIO -->
+<section class="chapter studio" id="studio">
+  <div class="ch-head"><span class="mono">Behind the lens</span><span class="mono" style="color:var(--faint)">Leo Operations Studio</span></div>
+  <h2 class="ch-title"><span class="reveal-line"><span>The</span></span><span class="reveal-line"><span><span class="it">Studio</span></span></span></h2>
+  <p class="lead2">He doesn't just run the campaign. <span class="it">He films it.</span></p>
+  <p class="sub">Campaign ads, endorsement spots, concerts, galas and brand films. Leo Operations has produced more than 50 films and thousands of photos for candidates, artists, schools and companies.</p>
+  <div class="lens" id="lens"><div class="lens-pin"><div class="lens-grid" id="lensGrid"><figure class="lens-card"><img src="photos/p01.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>On set, Music City Construction Careers</figcaption></figure><figure class="lens-card"><img src="photos/p02.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>Field shoot</figcaption></figure><figure class="lens-card"><img src="photos/p03.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>Press event</figcaption></figure><figure class="lens-card"><img src="photos/p04.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>Live concert coverage</figcaption></figure><figure class="lens-card"><img src="photos/p05.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>Event night</figcaption></figure><figure class="lens-card"><img src="photos/p06.jpg" alt="Rodriquez Wright II behind the camera" loading="lazy"><figcaption>Gala coverage</figcaption></figure></div></div></div>
+  <div class="wall-head"><h3>Recent <span class="it">work.</span></h3><a class="yt-link mono" href="https://www.youtube.com/@leooperations" target="_blank" rel="noopener">All films on YouTube &rarr;</a></div>
+  <div class="wall" id="wall"><div class="tile big" data-yt="vOdIz2j5N8I" data-cursor="Play"><img src="work/jetcars.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/jetcars.jpg" data-src="work/jetcars.mp4"></video><div class="cap"><span>Brand film</span><b>Music City Exotic Jetcars</b></div></div><div class="tile wide" data-yt="-SaLiefOkeg" data-cursor="Play"><img src="work/crockett.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/crockett.jpg" data-src="work/crockett.mp4"></video><div class="cap"><span>Endorsement</span><b>Rep. Jasmine Crockett for Nick Pittman</b></div></div><div class="tile tall" data-yt="F9tvytpw5NQ" data-cursor="Play"><img src="work/soul.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/soul.jpg" data-src="work/soul.mp4"></video><div class="cap"><span>Live event</span><b>Psiryn & Kandi Burruss at Soul Nashville</b></div></div><div class="tile " data-yt="eOfr7Vq8b_M" data-cursor="Play"><img src="work/tsu.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/tsu.jpg" data-src="work/tsu.mp4"></video><div class="cap"><span>Event film</span><b>TSU Homecoming 2025</b></div></div><div class="tile " data-yt="uJxt1Ir5ivo" data-cursor="Play"><img src="work/pulley.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/pulley.jpg" data-src="work/pulley.mp4"></video><div class="cap"><span>Campaign ad</span><b>Russ Pulley for Council</b></div></div><div class="tile wide" data-yt="HUjsE4HyVJA" data-cursor="Play"><img src="work/aone.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/aone.jpg" data-src="work/aone.mp4"></video><div class="cap"><span>Event film</span><b>DJ AOne 40th at Madison Square Garden</b></div></div><div class="tile " data-yt="lY6nIvzoIkk" data-cursor="Play"><img src="work/bane.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/bane.jpg" data-src="work/bane.mp4"></video><div class="cap"><span>Feature</span><b>Desmond Bane honored by TCU</b></div></div><div class="tile " data-yt="Ex3EG3RylKg" data-cursor="Play"><img src="work/privy.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/privy.jpg" data-src="work/privy.mp4"></video><div class="cap"><span>Live event</span><b>Privy All White Concert</b></div></div><div class="tile wide" data-yt="3y48WGfnzUA" data-cursor="Play"><img src="work/sierra.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/sierra.jpg" data-src="work/sierra.mp4"></video><div class="cap"><span>Documentary</span><b>Sierra Club at Rio Salado, Phoenix</b></div></div><div class="tile wide" data-yt="ymN1v9eCF4A" data-cursor="Play"><img src="work/mc3.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" poster="work/mc3.jpg" data-src="work/mc3.mp4"></video><div class="cap"><span>Graduation film</span><b>Music City Construction Careers</b></div></div></div>
 </section>
 
 <!-- PUBLISHER -->
@@ -642,6 +729,14 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
   </div>
 </section>
 
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery" aria-label="Photo gallery">
+  <div class="gal-word" aria-hidden="true"><span>In <em>Frame</em></span></div>
+  <div class="gal-cols" id="galCols"><div class="gal-col"><img src="photos/p07.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p09.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p17.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p18.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p20.jpg" alt="Rodriquez Wright II" loading="lazy"></div><div class="gal-col"><img src="photos/p08.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p10.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p12.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p14.jpg" alt="Rodriquez Wright II" loading="lazy"></div><div class="gal-col"><img src="photos/p16.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p11.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p13.jpg" alt="Rodriquez Wright II" loading="lazy"><img src="photos/p19.jpg" alt="Rodriquez Wright II" loading="lazy"></div></div>
+  <p class="gal-foot mono">Nashville / Washington / New York / Everywhere the story is</p>
+</section>
+
 <!-- PRESS -->
 <section class="chapter" id="press">
   <div class="ch-head"><span class="mono">Chapter IV</span><span class="mono" style="color:var(--faint)">Selected coverage</span></div>
@@ -655,6 +750,24 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
     <li><a href="https://hiphopsince1987.com/2022/music/social-privilege-by-rod212-americas-cold-truth/"><span class="src mono">HipHopSince1987</span><span class="t">"Social Privilege": America's cold truth</span><span class="dt mono">Oct 2022</span></a></li>
   </ul>
 </section>
+
+
+<!-- HIRE -->
+<section class="chapter hire" id="hire">
+  <div class="ch-head"><span class="mono">Work with me</span><span class="mono" style="color:var(--faint)">Now booking 2027</span></div>
+  <h2 class="hire-title"><span class="reveal-line"><span>This site</span></span><span class="reveal-line"><span>is the <span class="it">pitch.</span></span></span></h2>
+  <div class="hire-intro">
+    <p>If it stopped you scrolling, imagine what it can do for your brand, your campaign or your music. <strong>Leo Operations</strong> builds cinematic websites, films and strategy for creators, candidates and companies who refuse to look like everyone else.</p>
+    <p>Tell me what you're building. I'll tell you how we make people remember it.</p>
+  </div>
+  <ul class="svc" id="svc"><li><a href="mailto:rod@leooperations.com?subject=Website%20project" data-peek="media/be-scrolling.jpg"><span class="n">01</span><span class="t">Cinematic websites</span><span class="d">Scroll-driven sites like this one, built to make people stop, stay and call.</span><span class="ar">&rarr;</span></a></li><li><a href="mailto:rod@leooperations.com?subject=Campaign%20video" data-peek="work/pulley.jpg"><span class="n">02</span><span class="t">Campaign films and ads</span><span class="d">Announcement videos, endorsements and 30-second spots that move voters.</span><span class="ar">&rarr;</span></a></li><li><a href="mailto:rod@leooperations.com?subject=Event%20coverage" data-peek="work/privy.jpg"><span class="n">03</span><span class="t">Event films and photography</span><span class="d">Galas, concerts, homecomings and conferences, delivered fast.</span><span class="ar">&rarr;</span></a></li><li><a href="mailto:rod@leooperations.com?subject=Campaign%20strategy" data-peek="img/hall.jpg"><span class="n">04</span><span class="t">Campaign strategy and field</span><span class="d">The plan, the team and the doors. Fourteen years of winning playbooks.</span><span class="ar">&rarr;</span></a></li><li><a href="mailto:rod@leooperations.com?subject=Creator%20content" data-peek="work/jetcars.jpg"><span class="n">05</span><span class="t">Brand and creator content</span><span class="d">Visual identities, social content and launch campaigns for founders and artists.</span><span class="ar">&rarr;</span></a></li></ul>
+  <div class="cta-big">
+    <span class="mono">One email starts it</span>
+    <a class="cta-btn" href="mailto:rod@leooperations.com?subject=New%20project%20with%20Rodriquez%20Wright%20II">Start your project &rarr;</a>
+  </div>
+  <div class="booking" aria-hidden="true"><div class="track"><span>Websites</span><span class="o">Films</span><span>Campaigns</span><span class="o">Photography</span><span>Strategy</span><span class="o">Now booking</span><span>Websites</span><span class="o">Films</span><span>Campaigns</span><span class="o">Photography</span><span>Strategy</span><span class="o">Now booking</span></div></div>
+</section>
+<div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
 
 <!-- CONTACT -->
 <section class="chapter" id="contact">
@@ -903,6 +1016,45 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
     var hx=gsap.quickTo('.hero-img','x',{duration:1.2,ease:'power3'}), hy=gsap.quickTo('.hero-img','y',{duration:1.2,ease:'power3'});
     document.getElementById('hero').addEventListener('mousemove',function(e){hx((e.clientX/innerWidth-.5)*-24);hy((e.clientY/innerHeight-.5)*-16)});
   }
+
+
+  // ===== STUDIO: photos fly in from a stacked pile into a grid =====
+  mm.add('(min-width: 761px)',function(){
+    var cards=gsap.utils.toArray('.lens-card');
+    var tlL=gsap.timeline({scrollTrigger:{trigger:'#lens',start:'top top',end:'+=120%',pin:'.lens-pin',scrub:.8,invalidateOnRefresh:true}});
+    tlL.from(cards,{x:function(i,el){var g=document.getElementById('lensGrid').getBoundingClientRect(),r=el.getBoundingClientRect();return (g.left+g.width/2)-(r.left+r.width/2)},
+      y:function(i,el){var g=document.getElementById('lensGrid').getBoundingClientRect(),r=el.getBoundingClientRect();return (g.top+g.height/2)-(r.top+r.height/2)},
+      rotation:function(i){return [-14,9,-5,12,-9,6][i%6]},scale:.78,ease:'power3.inOut',stagger:{each:.04,from:'end'}});
+  });
+  mm.add('(max-width: 760px)',function(){
+    gsap.utils.toArray('.lens-card').forEach(function(c,i){gsap.from(c,{y:60,rotation:i%2?6:-6,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 90%'}})});
+  });
+
+  // ===== work wall: tiles pop in, videos play only while visible =====
+  gsap.from('.tile',{y:50,opacity:0,stagger:.06,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#wall',start:'top 85%'}});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!v)return;
+      if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;v.play().catch(function(){})}else{v.pause()}})},{threshold:.25});
+    document.querySelectorAll('.tile').forEach(function(t){io.observe(t)});
+  }
+
+  // ===== gallery: columns drift at different speeds =====
+  var gc=gsap.utils.toArray('.gal-col');
+  [-12,10,-20].forEach(function(v,i){ if(gc[i]) gsap.fromTo(gc[i],{yPercent:-v/2},{yPercent:v,ease:'none',scrollTrigger:{trigger:'#gallery',start:'top bottom',end:'bottom top',scrub:true}}) });
+  gsap.from('.gal-col img',{scale:.9,opacity:0,stagger:.05,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#galCols',start:'top 85%'}});
+
+  // ===== hire: service rows + cursor-follow preview =====
+  gsap.from('.svc li',{y:40,opacity:0,stagger:.08,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#svc',start:'top 85%'}});
+  if(window.matchMedia('(pointer:fine)').matches){
+    var pk=document.getElementById('peek'),pi=pk.querySelector('img');
+    var px=gsap.quickTo(pk,'x',{duration:.5,ease:'power3'}),py=gsap.quickTo(pk,'y',{duration:.5,ease:'power3'});
+    document.querySelectorAll('.svc a').forEach(function(a){
+      a.addEventListener('mouseenter',function(){pi.src=a.dataset.peek;pk.classList.add('on')});
+      a.addEventListener('mouseleave',function(){pk.classList.remove('on')});
+      a.addEventListener('mousemove',function(e){px(e.clientX+30);py(e.clientY-90)});
+    });
+  }
+  gsap.from('.cta-btn',{scale:.4,opacity:0,duration:1.4,ease:'elastic.out(1,.6)',scrollTrigger:{trigger:'.cta-big',start:'top 80%'}});
 
   // ===== marquee leans with scroll speed =====
   var skew=gsap.quickTo('.marquee .track','skewX',{duration:.4,ease:'power3'});
