@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rodriquez Wright II">
 <meta property="og:title" content="Rodriquez Wright II">
-<meta property="og:description" content="Campaigns. Media. Music. 650K doors, 344 events, 995K views. Step inside.">
+<meta property="og:description" content="Campaigns. Media. Music. 650K doors, 1,000+ events, 995K views. Step inside.">
 <meta property="og:url" content="https://rodriquezwright.com/">
 <meta property="og:image" content="https://rodriquezwright.com/og.jpg">
 <meta property="og:image:secure_url" content="https://rodriquezwright.com/og.jpg">
@@ -472,7 +472,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 /* ARCHIVE */
 .archive{position:relative;border-top:1px solid var(--line);padding:clamp(100px,16vh,170px) 0;overflow:clip}
 .arc-head{padding:0 var(--pad);display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,60px);align-items:end;margin-bottom:clamp(50px,8vh,90px)}
-.arc-num{font-weight:900;font-size:clamp(110px,20vw,340px);letter-spacing:-.07em;line-height:.78;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,var(--ink) 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.arc-plus{font-size:.5em;vertical-align:.6em;margin-left:.04em}.arc-num{font-weight:900;font-size:clamp(110px,20vw,340px);letter-spacing:-.07em;line-height:.78;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,var(--ink) 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
 .arc-copy .mono{color:var(--gold)}
 .arc-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,58px);line-height:1.04;margin:12px 0 16px;max-width:18ch}
 .arc-copy p{color:var(--dim);max-width:46ch}
@@ -613,9 +613,9 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
         <div class="receipt mono">Client list, leooperations.com/clients</div>
       </div>
       <div class="rc" data-receipt>
-        <div class="num"><span data-count="344">0</span></div>
+        <div class="num"><span data-count="1000">0</span><sup>+</sup></div>
         <div class="lbl">Events photographed, from swearing-ins to galas.</div>
-        <div class="receipt mono">rodwrightphotography.pixieset.com, 2019 to 2026</div>
+        <div class="receipt mono">Pixieset, Google Drive and Dropbox archives, 2012 to 2026</div>
       </div>
       <div class="rc-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     </div>
@@ -697,10 +697,10 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 <!-- ARCHIVE -->
 <section class="archive" id="archive" aria-label="Photography archive">
   <div class="arc-head">
-    <div class="arc-num"><span id="arcNum">344</span></div>
+    <div class="arc-num"><span id="arcNum">1,000</span><span class="arc-plus">+</span></div>
     <div class="arc-copy">
       <span class="mono">The archive / Rod Wright Photography</span>
-      <h2>Events photographed since 2019. <span class="it gold">And counting.</span></h2>
+      <h2>Events photographed. <span class="it gold">And counting.</span></h2>
       <p>Swearing-ins, campaign kickoffs, galas, courtrooms, homecomings and the State Capitol. When Nashville makes history, he is usually the one holding the camera.</p>
     </div>
   </div>
@@ -714,7 +714,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
   </div>
   <div class="arc-foot">
     <div class="tags"><span>Campaigns</span><span>Judiciary</span><span>Galas</span><span>HBCU</span><span>Nonprofits</span><span>Sports</span><span>Headshots</span></div>
-    <a class="btn" href="https://rodwrightphotography.pixieset.com/" target="_blank" rel="noopener">Browse all 344 galleries <span class="arr">&rarr;</span></a>
+    <a class="btn" href="https://rodwrightphotography.pixieset.com/" target="_blank" rel="noopener">Browse the galleries <span class="arr">&rarr;</span></a>
   </div>
 </section>
 
@@ -1198,7 +1198,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
     gsap.fromTo(a[0],{xPercent:a[1]},{xPercent:a[2],ease:'none',scrollTrigger:{trigger:'#archive',start:'top bottom',end:'bottom top',scrub:.6}});
   });
   var an=document.getElementById('arcNum'), ao={v:0};
-  ScrollTrigger.create({trigger:'#archive',start:'top 75%',once:true,onEnter:function(){gsap.to(ao,{v:344,duration:2.2,ease:'power3.out',onUpdate:function(){an.textContent=Math.round(ao.v)}})}});
+  ScrollTrigger.create({trigger:'#archive',start:'top 75%',once:true,onEnter:function(){gsap.to(ao,{v:1000,duration:2.2,ease:'power3.out',onUpdate:function(){an.textContent=Math.round(ao.v).toLocaleString('en-US')}})}});
   an.textContent='0';
 
 
