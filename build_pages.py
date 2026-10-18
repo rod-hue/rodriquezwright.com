@@ -39,7 +39,43 @@ ul.list{margin:0 0 18px 1.2em}ul.list li{margin:6px 0;color:#e6e1d6}
 footer{border-top:1px solid var(--line);padding:30px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 footer a{color:var(--dim);text-decoration:none}
 @media (max-width:700px){.top ul{display:none}body{font-size:17px}}
+.disco{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;margin:26px 0}
+.disco details{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2)}
+.disco summary{list-style:none;cursor:pointer}.disco summary::-webkit-details-marker{display:none}
+.disco img{width:100%;aspect-ratio:1;object-fit:cover;background:#1a1a1d}
+.disco .t{display:block;padding:10px 12px 2px;font-size:14.5px;line-height:1.3;font-weight:600}
+.disco .y{display:block;padding:0 12px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.disco ol{margin:0;padding:4px 12px 12px 30px;font-size:13.5px;color:#e6e1d6}.disco ol li{margin:4px 0}.disco ol a{color:var(--gold2);text-decoration:none}
+.disco .go{display:block;padding:0 12px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);text-decoration:none}
 """
+
+def esc(t):
+    return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
+
+def discography():
+    rel = json.load(open('data/discography.json'))
+    cards = []
+    for r in rel:
+        kind = 'Single' if r['count'] == 1 else ('EP' if r['count'] <= 6 else 'Album')
+        title = r['title'].replace(' - Single', '').replace(' - EP', '')
+        who = '' if r['artist'] == 'Rod212' else f' &middot; {esc(r["artist"])}'
+        tracks = ''.join(f'<li><a href="{t["url"]}" rel="noopener">{esc(t["title"])}</a></li>' for t in r['tracks'])
+        cards.append(f'<details><summary><img src="{r["art"]}" alt="{esc(title)} cover art" loading="lazy" width="400" height="400">'
+                     f'<span class="t">{esc(title)}</span><span class="y">{r["date"][:4]} &middot; {kind}{who}</span></summary>'
+                     f'<ol>{tracks}</ol><a class="go" href="{r["url"]}" rel="noopener">Open in Apple Music</a></details>')
+    n_tracks = sum(len(r['tracks']) for r in rel)
+    ld = {"@context": "https://schema.org", "@type": "MusicGroup", "@id": SITE + '/rod212/#artist', "name": "Rod212",
+          "url": SITE + '/rod212/', "member": {"@id": PERSON}, "foundingLocation": "Chicago, Illinois",
+          "sameAs": ["https://music.apple.com/us/artist/1066113726", "https://open.spotify.com/artist/1VtIRrcWyxHXd5Fe2iEaRg",
+                     "https://www.youtube.com/@Rod212Official", "https://musicbrainz.org/artist/97c666a3-d5a9-4b33-b8d0-c6ee26b16345",
+                     "https://www.discogs.com/artist/10982258-Rod212", "https://genius.com/artists/Rod212", "https://www.bandsintown.com/a/15671105"],
+          "album": [{"@type": "MusicAlbum", "name": r['title'], "datePublished": r['date'], "url": r['url'], "image": r['art'],
+                     "numTracks": r['count'], "byArtist": {"@type": "MusicGroup", "name": r['artist']},
+                     "track": [{"@type": "MusicRecording", "name": t['title'], "url": t['url']} for t in r['tracks']]} for r in rel]}
+    return (f'<h2>The full <em>discography</em></h2>'
+            f'<p>Every Rod212 release on Apple Music, newest first: {len(rel)} releases and {n_tracks} tracks. Tap a cover to see its tracks.</p>'
+            f'<div class="disco">{"".join(cards)}</div>'
+            f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
 
 def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_type='AboutPage'):
     url = f'{SITE}/{slug}/'
@@ -181,6 +217,7 @@ urls.append(page('rod212', 'Rod212 | Music by Rodriquez Wright II',
 <li><a href="https://soundcloud.com/rod212">SoundCloud</a></li>
 <li><a href="https://www.instagram.com/rod212/">Instagram</a></li>
 </ul>
+""" + discography() + """
 <h2>One artist, <em>two names</em></h2>
 <p>Off the mic, Rod212 is Rodriquez Wright II: political strategist, founder of Leo Operations and publisher of Washington DC Magazine. Read the full story on the <a href="/about/">about page</a>.</p>
 """, [('The Source (Oct 21, 2022)', 'https://thesource.com/2022/10/21/rod212-continues-his-2022-dominance-with-pro-humanity-single-social-privilege/'),
