@@ -124,7 +124,7 @@ def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_
 <div class="next">{nxt}</div>
 <div class="src"><h3>Sources</h3><ul>{src}</ul></div>
 </main>
-<footer><span>&copy; 2026 Rodriquez Wright II</span><span><a href="/">rodriquezwright.com</a> &middot; <a href="https://leooperations.com/team/rodriquez-wright-ii/">Leo Operations</a> &middot; <a href="https://www.washingtondcmagazine.com/author/rod/">Washington DC Magazine</a></span></footer>
+<footer><span>&copy; 2026 Rodriquez Wright II</span><span><a href="/">rodriquezwright.com</a> &middot; <a href="https://leooperations.com/team/rodriquez-wright-ii/">Leo Operations</a> &middot; <a href="https://www.washingtondcmagazine.com/author/rod/">Washington DC Magazine</a> &middot; <a href="https://about.me/rodriquezwrightii">About.me</a></span></footer>
 </body>
 </html>
 """
@@ -216,6 +216,9 @@ urls.append(page('rod212', 'Rod212 | Music by Rodriquez Wright II',
 <li><a href="https://www.youtube.com/@Rod212Official">YouTube</a></li>
 <li><a href="https://soundcloud.com/rod212">SoundCloud</a></li>
 <li><a href="https://www.instagram.com/rod212/">Instagram</a></li>
+<li><a href="https://genius.com/artists/Rod212">Genius</a> (lyrics)</li>
+<li><a href="https://www.bandsintown.com/a/15671105">Bandsintown</a> (shows)</li>
+<li><a href="https://www.discogs.com/artist/10982258-Rod212">Discogs</a> and <a href="https://musicbrainz.org/artist/97c666a3-d5a9-4b33-b8d0-c6ee26b16345">MusicBrainz</a> (discography data)</li>
 </ul>
 """ + discography() + """
 <h2>One artist, <em>two names</em></h2>
@@ -226,8 +229,8 @@ urls.append(page('rod212', 'Rod212 | Music by Rodriquez Wright II',
       ('Mystic Sons, "Getting To Know... Rod212" (Jan 30, 2023)', 'https://www.mysticsons.com/article/getting-know-rod212'),
       ('Muso.ai credits profile', 'https://muso.ai/profile/fe1684e2-ac56-4df6-b3e9-57a88d01f90d')], 'WebPage'))
 
-sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', f'  <url><loc>{SITE}/</loc><lastmod>2026-10-17</lastmod></url>']
-sm += [f'  <url><loc>{u}</loc><lastmod>2026-10-17</lastmod></url>' for u in urls]
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', f'  <url><loc>{SITE}/</loc><lastmod>2026-10-18</lastmod></url>']
+sm += [f'  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>' for u in urls]
 sm += ['</urlset>']
 open('sitemap.xml', 'w').write('\n'.join(sm) + '\n')
 print('\n'.join(urls))
