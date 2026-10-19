@@ -294,6 +294,7 @@ def _photo_body():
 <h2>See the <em>work</em></h2>
 <ul class="list">
 <li><a href="https://rodwrightphotography.pixieset.com/">Rod Wright Photography galleries</a> on Pixieset</li>
+<li><a href="https://commons.wikimedia.org/wiki/Category:Photographs_by_Rod_Wright">Campaign photographs by Rod Wright</a> on Wikimedia Commons</li>
 <li><a href="https://www.youtube.com/@leooperations">Leo Operations films</a> on YouTube</li>
 <li><a href="https://www.instagram.com/rod212/">Instagram @rod212</a></li>
 <li><a href="https://leooperations.com/nashville-photographer/">Book a Nashville event photographer</a> and <a href="https://leooperations.com/nashville-videographer/">videographer</a></li>
