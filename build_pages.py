@@ -5,7 +5,7 @@ import json, os
 
 SITE = 'https://rodriquezwright.com'
 PERSON = SITE + '/#person'
-NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
+NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Photography', '/photography/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
 
 CSS = """
 :root{--bg:#0a0a0b;--bg2:#111113;--ink:#f3efe6;--dim:#a19c92;--faint:#5c5850;--line:rgba(243,239,230,.12);--gold:#d4a957;--gold2:#f0cf8a;
@@ -32,6 +32,7 @@ main p{margin:0 0 18px;color:#e6e1d6}main p a{color:var(--gold2);text-underline-
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0}
 .facts div{background:var(--bg2);padding:18px 20px}.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold2);line-height:1.1}.facts span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 /* writing */.w-list{display:grid;gap:14px;margin:10px 0 30px}.w-item{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg2)}.w-item h3{margin:6px 0 6px;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.2;text-transform:none;letter-spacing:0;color:#f3efe6}.w-item h3 a{color:inherit;text-decoration:none}.w-item h3 a:hover{color:var(--gold2)}.w-item p{margin:0;color:var(--dim);font-size:15px}
+.ph-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:18px 0 34px}.ph-grid figure{margin:0;border-radius:12px;overflow:hidden;background:var(--bg2);position:relative;aspect-ratio:4/5}.ph-grid img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}.ph-grid figcaption{position:absolute;left:8px;bottom:8px;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.6);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#f3efe6}
 ul.list{margin:0 0 18px 1.2em}ul.list li{margin:6px 0;color:#e6e1d6}
 .src{border-top:1px solid var(--line);margin-top:60px;padding-top:22px}.src h3{margin-top:0}.src li{font-size:14.5px;color:var(--dim);margin:6px 0}
 .next{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:50px}
@@ -81,7 +82,7 @@ def discography():
 def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_type='AboutPage'):
     url = f'{SITE}/{slug}/'
     nav = ''.join(f'<li><a href="{h}"{" aria-current=\"page\"" if h == "/" + slug + "/" else ""}>{n}</a></li>' for n, h in NAV)
-    others = [(n, h) for n, h in NAV[:5] if h != '/' + slug + '/']
+    others = [(n, h) for n, h in NAV[:6] if h != '/' + slug + '/']
     nxt = ''.join(f'<a href="{h}"><span>Rodriquez Wright II</span><b>{n}</b></a>' for n, h in others)
     src = ''.join(f'<li><a href="{u}" rel="noopener">{t}</a></li>' if u else f'<li>{t}</li>' for t, u in sources)
     ld = {"@context": "https://schema.org", "@graph": [
@@ -246,6 +247,32 @@ urls.append(page('writing', 'Rodriquez Wright II | Articles and Interviews, Wash
   'Articles, interviews and reporting by Rodriquez Wright II (Rod Wright), founder and editor-in-chief of Washington DC Magazine: politics, the CBC, artists and DC culture.',
   'The writer', 'Articles and <em>interviews</em>', 'Reporting and interviews by Rodriquez Wright II for Washington DC Magazine.',
   'img/hall.jpg', 'Rodriquez Wright II', _writing_body(), [WDCM, ('Washington DC Magazine', 'https://www.washingtondcmagazine.com/')], 'CollectionPage'))
+
+_SHOT = [('beyonce','Beyoncé'),('metgala','The Met Gala'),('jayz','JAY-Z'),('jeezy','Jeezy'),('warnock','Sen. Raphael Warnock'),('patti','Patti LaBelle'),('sharpton','Rev. Al Sharpton'),('booker','Sen. Cory Booker'),('paris','Paris Hilton'),('firsttake','ESPN First Take'),('ludacris','Ludacris'),('carmelo','Carmelo Anthony')]
+def _photo_body():
+    grid = ''.join(f'<figure><img src="/img/shot/{s}.jpg" alt="{esc(n)} photographed by Rod Wright" loading="lazy"><figcaption>{esc(n)}</figcaption></figure>' for s, n in _SHOT)
+    return f"""
+<p><strong>Rod Wright</strong>, legally Rodriquez Wright II, is a photographer and filmmaker based in Nashville who has photographed more than 1,000 events. His work spans red carpets, concerts, political campaigns, galas, HBCU homecomings and weddings, and it runs through <a href="https://leooperations.com/">Leo Operations</a>, the media firm he founded, and <a href="https://www.washingtondcmagazine.com/">Washington DC Magazine</a>, where he shoots his own stories.</p>
+<div class="facts"><div><b>1,000+</b><span>events photographed</span></div><div><b>56</b><span>films on YouTube</span></div><div><b>4K</b><span>cinema and drone</span></div><div><b>Nashville</b><span>and nationwide</span></div></div>
+<h2>In the <em>room</em></h2>
+<p>His lens has covered Beyoncé, JAY-Z, Patti LaBelle, Paris Hilton, Sen. Raphael Warnock, Sen. Cory Booker, Rev. Al Sharpton and the Met Gala.</p>
+<div class="ph-grid">{grid}</div>
+<h2>Events and <em>politics</em></h2>
+<p>For campaigns and elected officials he shoots launches, swearing-ins, legislative sessions and election nights. Clients have included Nashville Mayor Freddie O'Connell, members of the Tennessee General Assembly, the National Black Caucus of State Legislators and the Memphis Grizzlies.</p>
+<h2>Weddings</h2>
+<p>Through Leo Operations, Wright and his team photograph and film weddings with coordinated photo, 4K video and drone coverage. See the <a href="https://leooperations.com/weddings/">wedding photography and film page</a> for recent couples and the highlight reel.</p>
+<h2>See the <em>work</em></h2>
+<ul class="list">
+<li><a href="https://rodwrightphotography.pixieset.com/">Rod Wright Photography galleries</a> on Pixieset</li>
+<li><a href="https://www.youtube.com/@leooperations">Leo Operations films</a> on YouTube</li>
+<li><a href="https://www.instagram.com/rod212/">Instagram @rod212</a></li>
+<li><a href="https://leooperations.com/nashville-photographer/">Book a Nashville event photographer</a> and <a href="https://leooperations.com/nashville-videographer/">videographer</a></li>
+</ul>
+"""
+urls.append(page('photography', 'Rod Wright Photography | Rodriquez Wright II, Photographer and Filmmaker',
+  'Rod Wright (Rodriquez Wright II) is a Nashville photographer and filmmaker: 1,000+ events, Beyoncé, JAY-Z, the Met Gala, campaigns, galas and weddings.',
+  'The photographer', 'Rod Wright <em>Photography</em>', 'Red carpets, campaigns, concerts and weddings, through the lens of Rodriquez Wright II.',
+  'photos/p01.jpg', 'Rod Wright behind the camera', _photo_body(), [LEO, WDCM, ('Rod Wright Photography on Pixieset', 'https://rodwrightphotography.pixieset.com/')], 'CollectionPage'))
 
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', f'  <url><loc>{SITE}/</loc><lastmod>2026-10-18</lastmod></url>']
 sm += [f'  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>' for u in urls]
