@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """Builds the deep pages of rodriquezwright.com: /about/, /campaigns/, /publisher/, /rod212/.
 Facts come from the Wikipedia draft (sourced). Third-person voice, no em dashes."""
@@ -5,7 +6,7 @@ import json, os
 
 SITE = 'https://rodriquezwright.com'
 PERSON = SITE + '/#person'
-NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Photography', '/photography/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
+NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Guides', '/guides/'), ('Photography', '/photography/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
 
 CSS = """
 :root{--bg:#0a0a0b;--bg2:#111113;--ink:#f3efe6;--dim:#a19c92;--faint:#5c5850;--line:rgba(243,239,230,.12);--gold:#d4a957;--gold2:#f0cf8a;
@@ -247,6 +248,34 @@ urls.append(page('writing', 'Rodriquez Wright II | Articles and Interviews, Wash
   'Articles, interviews and reporting by Rodriquez Wright II (Rod Wright), founder and editor-in-chief of Washington DC Magazine: politics, the CBC, artists and DC culture.',
   'The writer', 'Articles and <em>interviews</em>', 'Reporting and interviews by Rodriquez Wright II for Washington DC Magazine.',
   'img/hall.jpg', 'Rodriquez Wright II', _writing_body(), [WDCM, ('Washington DC Magazine', 'https://www.washingtondcmagazine.com/')], 'CollectionPage'))
+
+import glob as _g, re as _re
+def _load_guides():
+    out = []
+    for f in sorted(_g.glob(os.path.expanduser('~/projects/leooperations-site/_src/guides/md/*.md'))):
+        m = _re.match(r'^---\n(.*?)\n---\n', open(f).read(), _re.S)
+        if not m: continue
+        d = dict((l.split(':', 1)[0].strip(), l.split(':', 1)[1].strip()) for l in m.group(1).split('\n') if ':' in l)
+        out.append(d)
+    return out
+_G = _load_guides()
+_GCATS = ['Campaigns', 'Field', 'Media', 'Organizing', 'Weddings']
+def _guides_body():
+    secs = ''
+    for c in _GCATS:
+        items = ''.join(f'<article class="w-item"><span class="kick">{esc(c)} &middot; Leo Operations</span><h3><a href="https://leooperations.com/guides/{g["slug"]}/">{esc(g["h1"])}</a></h3><p>{esc(g.get("dek",""))}</p></article>' for g in _G if g.get('category') == c)
+        if items: secs += f'<h2>{esc(c)}</h2><div class="w-list">{items}</div>'
+    return f"""
+<p>Rodriquez Wright II wrote these {len(_G)} in-depth guides for <a href="https://leooperations.com/">Leo Operations</a>, the national field, media and creative firm he founded in 2019. They draw on political campaign work going back to 2012: running for office, building a campaign budget, voter registration and get-out-the-vote programs, political TV and digital advertising, organizing events, and wedding photography and film.</p>
+<div class="facts"><div><b>{len(_G)}</b><span>guides</span></div><div><b>650,000+</b><span>doors knocked by Leo field programs</span></div><div><b>25</b><span>states with campaign work</span></div><div><b>1,000+</b><span>events photographed</span></div></div>
+{secs}
+<p>Browse every guide on the <a href="https://leooperations.com/guides/">Leo Operations guides page</a>.</p>
+"""
+if _G:
+    urls.append(page('guides', 'Rodriquez Wright II | Guides on Campaigns, Field, Media and Weddings',
+      'In-depth guides by Rodriquez Wright II (Rod Wright) for Leo Operations: campaign costs and budgets, voter registration, GOTV, political ads, organizing events and wedding photo and film.',
+      'The guides', 'Guides by <em>Rodriquez Wright II</em>', 'In-depth guides on campaigns, field, media, organizing and weddings, written for Leo Operations.',
+      'img/hall.jpg', 'Rodriquez Wright II', _guides_body(), [('Leo Operations guides', 'https://leooperations.com/guides/')], 'CollectionPage'))
 
 _SHOT = [('beyonce','Beyoncé'),('metgala','The Met Gala'),('jayz','JAY-Z'),('jeezy','Jeezy'),('warnock','Sen. Raphael Warnock'),('patti','Patti LaBelle'),('sharpton','Rev. Al Sharpton'),('booker','Sen. Cory Booker'),('paris','Paris Hilton'),('firsttake','ESPN First Take'),('ludacris','Ludacris'),('carmelo','Carmelo Anthony')]
 def _photo_body():
