@@ -71,7 +71,8 @@ def discography():
           "url": SITE + '/rod212/', "member": {"@id": PERSON}, "foundingLocation": "Chicago, Illinois",
           "sameAs": ["https://music.apple.com/us/artist/1066113726", "https://open.spotify.com/artist/1VtIRrcWyxHXd5Fe2iEaRg",
                      "https://www.youtube.com/@Rod212Official", "https://musicbrainz.org/artist/97c666a3-d5a9-4b33-b8d0-c6ee26b16345",
-                     "https://www.discogs.com/artist/10982258-Rod212", "https://genius.com/artists/Rod212", "https://www.bandsintown.com/a/15671105"],
+                     "https://www.discogs.com/artist/10982258-Rod212", "https://genius.com/artists/Rod212", "https://www.bandsintown.com/a/15671105",
+        "https://www.wikidata.org/wiki/Q141780060"],
           "album": [{"@type": "MusicAlbum", "name": r['title'], "datePublished": r['date'], "url": r['url'], "image": r['art'],
                      "numTracks": r['count'], "byArtist": {"@type": "MusicGroup", "name": r['artist']},
                      "track": [{"@type": "MusicRecording", "name": t['title'], "url": t['url']} for t in r['tracks']]} for r in rel]}
