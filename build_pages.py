@@ -5,7 +5,7 @@ import json, os
 
 SITE = 'https://rodriquezwright.com'
 PERSON = SITE + '/#person'
-NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
+NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
 
 CSS = """
 :root{--bg:#0a0a0b;--bg2:#111113;--ink:#f3efe6;--dim:#a19c92;--faint:#5c5850;--line:rgba(243,239,230,.12);--gold:#d4a957;--gold2:#f0cf8a;
@@ -31,6 +31,7 @@ main h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-trans
 main p{margin:0 0 18px;color:#e6e1d6}main p a{color:var(--gold2);text-underline-offset:3px}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0}
 .facts div{background:var(--bg2);padding:18px 20px}.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold2);line-height:1.1}.facts span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+/* writing */.w-list{display:grid;gap:14px;margin:10px 0 30px}.w-item{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg2)}.w-item h3{margin:6px 0 6px;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.2;text-transform:none;letter-spacing:0;color:#f3efe6}.w-item h3 a{color:inherit;text-decoration:none}.w-item h3 a:hover{color:var(--gold2)}.w-item p{margin:0;color:var(--dim);font-size:15px}
 ul.list{margin:0 0 18px 1.2em}ul.list li{margin:6px 0;color:#e6e1d6}
 .src{border-top:1px solid var(--line);margin-top:60px;padding-top:22px}.src h3{margin-top:0}.src li{font-size:14.5px;color:var(--dim);margin:6px 0}
 .next{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:50px}
@@ -80,7 +81,7 @@ def discography():
 def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_type='AboutPage'):
     url = f'{SITE}/{slug}/'
     nav = ''.join(f'<li><a href="{h}"{" aria-current=\"page\"" if h == "/" + slug + "/" else ""}>{n}</a></li>' for n, h in NAV)
-    others = [(n, h) for n, h in NAV[:4] if h != '/' + slug + '/']
+    others = [(n, h) for n, h in NAV[:5] if h != '/' + slug + '/']
     nxt = ''.join(f'<a href="{h}"><span>Rodriquez Wright II</span><b>{n}</b></a>' for n, h in others)
     src = ''.join(f'<li><a href="{u}" rel="noopener">{t}</a></li>' if u else f'<li>{t}</li>' for t, u in sources)
     ld = {"@context": "https://schema.org", "@graph": [
@@ -88,7 +89,7 @@ def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_
          "isPartOf": {"@id": SITE + '/#website'}, "about": {"@id": PERSON}, "mainEntity": {"@id": PERSON},
          "primaryImageOfPage": {"@type": "ImageObject", "url": SITE + '/' + img}},
         {"@type": "WebSite", "@id": SITE + '/#website', "url": SITE + '/', "name": "Rodriquez Wright II"},
-        {"@type": "Person", "@id": PERSON, "name": "Rodriquez Wright II", "alternateName": ["Rod212"], "url": SITE + '/'},
+        {"@type": "Person", "@id": PERSON, "name": "Rodriquez Wright II", "alternateName": ["Rod Wright", "Rod212", "Rodriquez Wright", "Rodriguez Wright", "Rodriguez Wright II", "Rod Wright II"], "url": SITE + '/'},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Rodriquez Wright II", "item": SITE + '/'},
             {"@type": "ListItem", "position": 2, "name": h1.replace('<em>', '').replace('</em>', ''), "item": url}]}]}
@@ -143,7 +144,7 @@ urls.append(page('about', 'About Rodriquez Wright II | Strategist, Publisher, Ar
   'About', 'Rodriquez <em>Wright II</em>', 'Political strategist. Publisher. Recording artist. One person behind three very different rooms.',
   'img/rodriquez-wright-ii-portrait.jpg', 'Rodriquez Wright II',
   """
-<p><strong>Rodriquez Wright II</strong> is an American political organizer, media entrepreneur and hip-hop recording artist based in Nashville, Tennessee. He founded the political consulting and media firm <a href="https://leooperations.com/">Leo Operations</a>, he is the founder and editor-in-chief of <a href="https://www.washingtondcmagazine.com/">Washington DC Magazine</a>, and he records and produces music under the name <a href="/rod212/">Rod212</a>.</p>
+<p><strong>Rodriquez Wright II</strong>, known as <strong>Rod Wright</strong> (his first name is often misspelled "Rodriguez"), is an American political organizer, media entrepreneur and hip-hop recording artist based in Nashville, Tennessee. He founded the political consulting and media firm <a href="https://leooperations.com/">Leo Operations</a>, he is the founder and editor-in-chief of <a href="https://www.washingtondcmagazine.com/">Washington DC Magazine</a>, and he records and produces music under the name <a href="/rod212/">Rod212</a>.</p>
 <div class="facts"><div><b>14 years</b><span>in campaigns</span></div><div><b>25 states</b><span>worked</span></div><div><b>1,000+</b><span>events photographed</span></div><div><b>2.8M+</b><span>Spotify streams as Rod212</span></div></div>
 <h2>Early life and <em>education</em></h2>
 <p>Wright grew up in Chicago and moved to Nashville to attend <strong>Tennessee State University</strong>, the historically Black university, where he studied English and was named to the dean's list. He went on to earn a Master of Public Administration at Tennessee State.</p>
@@ -228,6 +229,23 @@ urls.append(page('rod212', 'Rod212 | Music by Rodriquez Wright II',
       ('Wordplay Magazine (Jan 31, 2023)', 'https://www.wordplaymagazine.com/blog-1/2023/1/31/rod212-ft-sal-ly-rico-maz-really-not-okay-single'),
       ('Mystic Sons, "Getting To Know... Rod212" (Jan 30, 2023)', 'https://www.mysticsons.com/article/getting-know-rod212'),
       ('Muso.ai credits profile', 'https://muso.ai/profile/fe1684e2-ac56-4df6-b3e9-57a88d01f90d')], 'WebPage'))
+
+import json as _j
+_A = _j.load(open('data/wdcm_articles.json'))
+def _writing_body():
+    items = ''.join(f'<article class="w-item"><span class="kick">{esc(a["date"][:4])} &middot; Washington DC Magazine</span><h3><a href="{a["url"]}">{esc(a["title"])}</a></h3><p>{esc(a["excerpt"])}</p></article>' for a in _A)
+    return f"""
+<p>Rodriquez Wright II reports, interviews and photographs for <a href="https://www.washingtondcmagazine.com/">Washington DC Magazine</a>, the publication he founded and edits. Below is his bylined work, newest first. The full archive lives on his <a href="https://www.washingtondcmagazine.com/author/rod/">author page</a>.</p>
+<div class="facts"><div><b>{len(_A)}</b><span>bylined stories</span></div><div><b>Politics</b><span>Congress and the CBC</span></div><div><b>Culture</b><span>artists and interviews</span></div><div><b>DC</b><span>local coverage</span></div></div>
+<h2>Bylined <em>stories</em></h2>
+<div class="w-list">{items}</div>
+<h2>On the <em>beat</em></h2>
+<p>His reporting covers Congress and the Congressional Black Caucus, Washington's arts scene, independent musicians and the people shaping the capital. He also writes the magazine's editor's notes.</p>
+"""
+urls.append(page('writing', 'Rodriquez Wright II | Articles and Interviews, Washington DC Magazine',
+  'Articles, interviews and reporting by Rodriquez Wright II (Rod Wright), founder and editor-in-chief of Washington DC Magazine: politics, the CBC, artists and DC culture.',
+  'The writer', 'Articles and <em>interviews</em>', 'Reporting and interviews by Rodriquez Wright II for Washington DC Magazine.',
+  'img/hall.jpg', 'Rodriquez Wright II', _writing_body(), [WDCM, ('Washington DC Magazine', 'https://www.washingtondcmagazine.com/')], 'CollectionPage'))
 
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', f'  <url><loc>{SITE}/</loc><lastmod>2026-10-18</lastmod></url>']
 sm += [f'  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>' for u in urls]
