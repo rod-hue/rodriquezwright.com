@@ -305,8 +305,15 @@ urls.append(page('photography', 'Rod Wright Photography | Rodriquez Wright II, P
   'The photographer', 'Rod Wright <em>Photography</em>', 'Red carpets, campaigns, concerts and weddings, through the lens of Rodriquez Wright II.',
   'photos/p01.jpg', 'Rod Wright behind the camera', _photo_body(), [LEO, WDCM, ('Rod Wright Photography on Pixieset', 'https://rodwrightphotography.pixieset.com/')], 'CollectionPage'))
 
-sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', f'  <url><loc>{SITE}/</loc><lastmod>2026-10-18</lastmod></url>']
-sm += [f'  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>' for u in urls]
+import subprocess, datetime
+def lastmod(u):
+    # Date of the last commit that changed this page; today if it has uncommitted changes.
+    f = u.replace(SITE + '/', '') + 'index.html'
+    if subprocess.run(['git', 'diff', '--quiet', 'HEAD', '--', f]).returncode or not subprocess.run(['git', 'ls-files', f], capture_output=True, text=True).stdout.strip():
+        return datetime.date.today().isoformat()
+    return subprocess.run(['git', 'log', '-1', '--format=%cs', '--', f], capture_output=True, text=True).stdout.strip() or datetime.date.today().isoformat()
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+sm += [f'  <url><loc>{u}</loc><lastmod>{lastmod(u)}</lastmod></url>' for u in [SITE + '/'] + urls]
 sm += ['</urlset>']
 open('sitemap.xml', 'w').write('\n'.join(sm) + '\n')
 print('\n'.join(urls))
