@@ -6,7 +6,7 @@ import json, os
 
 SITE = 'https://rodriquezwright.com'
 PERSON = SITE + '/#person'
-NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Guides', '/guides/'), ('Photography', '/photography/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
+NAV = [('About', '/about/'), ('Campaigns', '/campaigns/'), ('Publisher', '/publisher/'), ('Writing', '/writing/'), ('Guides', '/guides/'), ('Photography', '/photography/'), ('Film', '/film/'), ('Rod212', '/rod212/'), ('Work with him', '/#hire')]
 
 CSS = """
 :root{--bg:#0a0a0b;--bg2:#111113;--ink:#f3efe6;--dim:#a19c92;--faint:#5c5850;--line:rgba(243,239,230,.12);--gold:#d4a957;--gold2:#f0cf8a;
@@ -202,7 +202,7 @@ urls.append(page('publisher', 'Rodriquez Wright II | Founder and Editor-in-Chief
 <p>Wright came to publishing from campaigns, and the magazine reflects that: it covers power the way an organizer sees it, through the people on the ground as well as the officials at the podium. His reporting and photography appear on his <a href="https://www.washingtondcmagazine.com/author/rod/">author page</a>.</p>
 """, [WDCM, ('Washington DC Magazine', 'https://www.washingtondcmagazine.com/')]))
 
-urls.append(page('rod212', 'Rod212 | Music by Rodriquez Wright II',
+urls.append(page('rod212', 'Rod212 | Official Site of the Rapper and Producer Rodriquez Wright II',
   'Rod212 is the music of Rodriquez Wright II: independent hip-hop and R&B, self-produced, 2.8 million Spotify streams, covered by The Source, EarMilk and Wordplay.',
   'The artist', 'Rod<em>212</em>', 'The music of Rodriquez Wright II. Independent, self-produced, and shot by the artist himself.',
   'img/hero.jpg', 'Rodriquez Wright II, known as Rod212',
@@ -304,6 +304,38 @@ urls.append(page('photography', 'Rod Wright Photography | Rodriquez Wright II, P
   'Rod Wright (Rodriquez Wright II) is a Nashville photographer and filmmaker: 1,000+ events, Beyoncé, JAY-Z, the Met Gala, campaigns, galas and weddings.',
   'The photographer', 'Rod Wright <em>Photography</em>', 'Red carpets, campaigns, concerts and weddings, through the lens of Rodriquez Wright II.',
   'photos/p01.jpg', 'Rod Wright behind the camera', _photo_body(), [LEO, WDCM, ('Rod Wright Photography on Pixieset', 'https://rodwrightphotography.pixieset.com/')], 'CollectionPage'))
+
+
+_FILMS = [('crockett','-SaLiefOkeg','Endorsement','Rep. Jasmine Crockett for Nick Pittman'),('soul','F9tvytpw5NQ','Live event','Psiryn and Kandi Burruss at Soul Nashville'),
+ ('bane','lY6nIvzoIkk','Feature','Desmond Bane honored by TCU'),('aone','HUjsE4HyVJA','Event film','DJ AOne 40th at Madison Square Garden'),
+ ('tsu','eOfr7Vq8b_M','Event film','TSU Homecoming 2025 with Jeezy'),('jetcars','vOdIz2j5N8I','Brand film','Music City Exotic Jetcars'),
+ ('pulley','uJxt1Ir5ivo','Campaign ad','Russ Pulley for Council'),('privy','Ex3EG3RylKg','Live event','Privy All White Concert'),
+ ('sierra','3y48WGfnzUA','Documentary','Sierra Club at Rio Salado, Phoenix'),('mc3','ymN1v9eCF4A','Graduation film','Music City Construction Careers')]
+def _film_body():
+    grid = ''.join(f'<figure class="fl"><a href="https://www.youtube.com/watch?v={y}" rel="noopener"><img src="/work/{k}.jpg" alt="{esc(t)}, filmed by Rodriquez Wright II" loading="lazy"></a><figcaption><span>{esc(c)}</span>{esc(t)}</figcaption></figure>' for k, y, c, t in _FILMS)
+    return f"""
+<style>.fgrid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:18px 0 34px}}.fl{{margin:0}}.fl img{{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px}}.fl figcaption{{font-size:15px;margin-top:8px;line-height:1.4}}.fl figcaption span{{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}}</style>
+<p><strong>Rodriquez Wright II</strong>, known as Rod Wright, is a videographer and filmmaker based in Nashville. He directs and shoots campaign ads, endorsement videos, event films, brand films and documentaries through <a href="https://leooperations.com/">Leo Operations</a>, the media and campaign firm he founded, and he films the music videos for his own work as the artist <a href="/rod212/">Rod212</a>.</p>
+<div class="facts"><div><b>56</b><span>films on YouTube</span></div><div><b>4K</b><span>cinema and drone</span></div><div><b>1,000+</b><span>events covered</span></div><div><b>Nashville</b><span>and nationwide</span></div></div>
+<h2>Selected <em>films</em></h2>
+<p>A cross-section of recent work. Each one opens on YouTube.</p>
+<div class="fgrid">{grid}</div>
+<h2>Campaign and <em>constituent</em> video</h2>
+<p>Much of his film work is political: launch videos, endorsements, campaign ads and constituent outreach for candidates and elected officials. That includes endorsement and outreach films for South Carolina legislators, collected on the <a href="https://leooperations.com/south-carolina/">Leo Operations South Carolina page</a>, and the <a href="https://leooperations.com/political-video-production/">political video production</a> work Leo does for campaigns across the country.</p>
+<h2>Churches, weddings and <em>brands</em></h2>
+<p>He also films church anniversaries, sermon clips and ministry films (see <a href="https://leooperations.com/churches/">church photo and film</a>), weddings with coordinated photo, video and drone coverage (see <a href="https://leooperations.com/weddings/">weddings</a>), and brand, recruitment and graduation films for companies and training programs.</p>
+<h2>Watch more</h2>
+<ul class="list">
+<li><a href="https://www.youtube.com/@leooperations">Leo Operations on YouTube</a>, 56 films</li>
+<li><a href="https://www.youtube.com/@Rod212Official">Rod212 on YouTube</a>, music videos</li>
+<li><a href="/photography/">Rod Wright Photography</a></li>
+<li><a href="https://leooperations.com/nashville-videographer/">Hire a Nashville videographer</a> or a <a href="https://leooperations.com/video-production-company/">video production company</a></li>
+</ul>
+"""
+urls.append(page('film', 'Rodriquez Wright II | Videographer and Filmmaker, Rod Wright Films',
+  'Rodriquez Wright II (Rod Wright) is a Nashville videographer and filmmaker: campaign ads, endorsements, event films, documentaries and music videos through Leo Operations.',
+  'The filmmaker', 'Rod Wright <em>Films</em>', 'Campaign ads, event films and documentaries, directed and shot by Rodriquez Wright II.',
+  'work/tsu.jpg', 'TSU Homecoming 2025 film by Rodriquez Wright II', _film_body(), [LEO, ('Leo Operations on YouTube', 'https://www.youtube.com/@leooperations')], 'CollectionPage'))
 
 import subprocess, datetime
 def lastmod(u):
