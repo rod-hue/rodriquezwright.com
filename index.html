@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rodriquez Wright II">
 <meta property="og:title" content="Rodriquez Wright II">
-<meta property="og:description" content="Campaigns. Media. Music. 650K doors, 1,000+ events, 995K views. Step inside.">
+<meta property="og:description" content="Campaigns. Media. Music. 650K doors, 1,000+ events, 1M views. Step inside.">
 <meta property="og:url" content="https://rodriquezwright.com/">
 <meta property="og:image" content="https://rodriquezwright.com/og.jpg">
 <meta property="og:image:secure_url" content="https://rodriquezwright.com/og.jpg">
@@ -300,7 +300,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 .mil-frame::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,10,11,.55) 0%,rgba(10,10,11,.25) 55%,rgba(10,10,11,.75) 100%)}
 .mil-text{position:relative;z-index:2;text-align:center;padding:0 var(--pad);pointer-events:none}
 .mil-text .mono{color:var(--gold2)}
-.mil-num{font-weight:900;font-size:clamp(84px,17vw,300px);letter-spacing:-.06em;line-height:.85;margin:14px 0 10px;font-variant-numeric:tabular-nums;text-shadow:0 10px 60px rgba(0,0,0,.5)}
+.mil-num{font-weight:900;font-size:clamp(60px,16vw,280px);letter-spacing:-.06em;line-height:.85;margin:14px 0 10px;font-variant-numeric:tabular-nums;text-shadow:0 10px 60px rgba(0,0,0,.5)}
 .mil-text p{text-shadow:0 2px 24px rgba(0,0,0,.8);font-family:var(--serif);font-size:clamp(22px,2.4vw,38px);line-height:1.15;max-width:22ch;margin:0 auto 26px}
 .mil-text p .it{color:var(--gold)}
 .mil-text .play{pointer-events:auto}
@@ -702,7 +702,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
         </div>
       </div>
       <ol class="tracks">
-        <li><span>Monday</span><span>995K views</span></li>
+        <li><span>Monday</span><span>1M views</span></li>
         <li><span>For The Summer</span><span>815K streams</span></li>
         <li><span>On The Water</span><span>81K views</span></li>
         <li><span>Social Privilege</span><span>The Source, 2022</span></li>
@@ -714,7 +714,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 
 
 <!-- MILLION -->
-<section class="million" id="million" aria-label="Monday, nearly one million views">
+<section class="million" id="million" aria-label="Monday, one million views">
   <div class="mil-pin">
     <div class="mil-frame" data-cursor="Play" data-yt="jHpVxPPFTg8"><video style="object-position:39% 32%;transform-origin:39% 32%" muted loop playsinline preload="metadata" poster="media/monday.jpg" src="media/monday.mp4"></video></div>
     <div class="mil-pre"><span class="mono gold">Rod212 / "Monday" (Official Video)</span></div>
@@ -933,7 +933,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
   lb.addEventListener('click',function(e){if(e.target===lb)closeLB()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB()});
 
-  if(reduce){ document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=el.dataset.count}); setupTracker(true); typeAll(true); var L0=document.getElementById('loader');if(L0)L0.remove(); document.getElementById('milNum').textContent='995,000'; document.querySelectorAll('video[data-src]').forEach(function(v){v.src=v.dataset.src}); gsap.set('.mil-frame',{clipPath:'none'}); return; }
+  if(reduce){ document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=el.dataset.count}); setupTracker(true); typeAll(true); var L0=document.getElementById('loader');if(L0)L0.remove(); document.getElementById('milNum').textContent='1,000,000'; document.querySelectorAll('video[data-src]').forEach(function(v){v.src=v.dataset.src}); gsap.set('.mil-frame',{clipPath:'none'}); return; }
 
   // HERO intro
   var ld={v:0}, ldC=document.getElementById('ldCount');
@@ -1051,7 +1051,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
     onToggle:function(s){ if(s.isActive){milV.play().catch(function(){})} else {milV.pause()} }}});
   milT.to('.mil-frame',{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'power2.inOut',duration:1},0)
       .to('.mil-frame video',{scale:1,ease:'none',duration:1.4},0)
-      .fromTo({v:0},{v:0},{v:995000,ease:'power1.out',duration:1.2,onUpdate:function(){milNum.textContent=Math.round(this.targets()[0].v).toLocaleString()}},.15)
+      .fromTo({v:0},{v:0},{v:1000000,ease:'power1.out',duration:1.2,onUpdate:function(){milNum.textContent=Math.round(this.targets()[0].v).toLocaleString()}},.15)
       .from('.mil-text p, .mil-text .play',{opacity:0,y:30,stagger:.1,duration:.3},.9)
       .to({}, {duration:.3});
 
