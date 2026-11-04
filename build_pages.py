@@ -138,6 +138,7 @@ def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_
 
 SJR = ('Tennessee General Assembly, Senate Joint Resolution 905 (2012)', 'https://www.capitol.tn.gov/Bills/107/Bill/SJR0905.pdf')
 LEO = ('Leo Operations, team page: Rodriquez Wright II', 'https://leooperations.com/team/rodriquez-wright-ii/')
+VOICE = ('The Nashville Voice, "The Strategist Nashville Voters Never See" (Nov 4, 2026)', 'https://www.thevoicenashville.com/nashville/the-strategist-nashville-voters-never-see/')
 WDCM = ('Washington DC Magazine, author page', 'https://www.washingtondcmagazine.com/author/rod/')
 
 urls = []
@@ -185,7 +186,7 @@ urls.append(page('campaigns', 'Rodriquez Wright II | Political Strategist and Ca
 <h2>Leo <em>Operations</em></h2>
 <p>Wright founded Leo Operations, a Nashville firm providing campaign management, field strategy, media production and digital marketing for campaigns, elected officials, nonprofits and businesses. Through the firm he was campaign manager for District Attorney Glenn Funk's 2022 re-election, and digital consultant to Metro Council at-large members Zulfat Suara and Burkley Allen in 2019 and 2023. In 2023 Suara and Allen were re-elected as part of the first at-large Metro Council delegation made up entirely of women. He is also digital consultant to Sharon Hurt's 2026 campaign for Davidson County Clerk.</p>
 <p>In 2023 the firm was a field consultant for SEIU Virginia during that year's Virginia General Assembly elections. Its photo and video clients have included Nashville Mayor Freddie O'Connell, state legislators Justin Jones, London Lamar, Charlane Oliver, Gloria Johnson, Jesse Chism and Heidi Campbell, and Dan Osborn's 2024 U.S. Senate campaign in Nebraska.</p>
-""", [LEO, SJR]))
+""", [LEO, SJR, VOICE]))
 
 urls.append(page('publisher', 'Rodriquez Wright II | Founder and Editor-in-Chief, Washington DC Magazine',
   'Rodriquez Wright II founded Washington DC Magazine and serves as its editor-in-chief: politics, business, culture and the people shaping the capital.',
