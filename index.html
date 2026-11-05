@@ -475,6 +475,24 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
 .cbc-grid figure:hover img{transform:scale(1.05)}
 .cbc-grid video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 @media (max-width:760px){.cbc-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:calc((100vw - 2*var(--pad) - 8px)/2*.66)}.cbc-grid figure{grid-column:span 1;grid-row:span 1}.cbc-grid figure.wide{grid-column:span 2;grid-row:span 2}.cbc-grid figure.big{grid-column:span 2;grid-row:span 2}.cbc-grid figure.tall{grid-row:span 2}}
+
+/* on tiktok */
+.tt-dek{color:var(--dim);max-width:52ch;margin-top:22px;font-size:clamp(17px,1.35vw,20px)}
+.tt-stats{display:flex;gap:clamp(28px,5vw,72px);margin:clamp(34px,5vh,56px) 0 clamp(28px,4vh,44px);flex-wrap:wrap}
+.tt-stats b{display:block;font-weight:900;font-size:clamp(40px,5.5vw,84px);letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.tt-stats .mono{color:var(--gold);margin-top:8px;display:block}
+.tt-row{list-style:none;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 14px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;overscroll-behavior-x:contain}
+.tt-card{flex:0 0 clamp(200px,19vw,270px);scroll-snap-align:start;position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg2);border:1px solid var(--line)}
+.tt-card a,.tt-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;color:inherit;text-decoration:none}
+.tt-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.tt-card a:hover img{transform:scale(1.04)}
+.tt-meta{position:absolute;left:0;right:0;bottom:0;padding:44px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;flex-direction:column;gap:5px}
+.tt-meta b{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tt-meta .mono:last-child{color:var(--dim);font-size:10px}
+.tt-play{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.35)}
+.tt-play::after{content:"";position:absolute;left:15px;top:12px;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.tt-foot{margin-top:20px;color:var(--faint);line-height:2}
+.tt-foot a{color:var(--gold);margin-left:14px;text-decoration:none;border-bottom:1px solid rgba(212,169,87,.4)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
@@ -504,6 +522,7 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
     <li><a href="#publisher">Publisher</a></li>
     <li><a href="#artist">Artist</a></li>
     <li><a href="#videos">Videos</a></li>
+    <li><a href="#tiktok">On TikTok</a></li>
     <li><a href="#press">Press</a></li>
     <li><a href="#start" style="color:var(--gold);opacity:1">Work with me</a></li>
   </ul>
@@ -798,6 +817,26 @@ footer{padding:30px var(--pad) 70px;border-top:1px solid var(--line);display:fle
       </article>
     </div>
   </div>
+</section>
+
+<!-- ON TIKTOK: other creators using Rod212 sounds -->
+<section class="chapter tt" id="tiktok" aria-label="Rod212 on TikTok">
+  <div class="ch-head"><span class="mono">On TikTok</span><span class="mono" style="color:var(--faint)">Creators using Rod212 sounds</span></div>
+  <h2 class="ch-title"><span class="reveal-line"><span>Their</span></span><span class="reveal-line"><span><span class="it">Soundtrack</span></span></span></h2>
+  <p class="tt-dek">Creators around the world have picked Rod212 songs to score their own videos: morning routines, recipes, haircuts, dance clips and game news. Here are some of the most watched.</p>
+  <div class="tt-stats"><div><b>250+</b><span class="mono">Creators</span></div><div><b>280+</b><span class="mono">Videos</span></div><div><b>5.5M+</b><span class="mono">Views</span></div></div>
+  <ul class="tt-row">
+    <li class="tt-card" data-id="7134432224459427115"><a href="https://www.tiktok.com/@idkbritney_/video/7134432224459427115" target="_blank" rel="noopener"><img src="media/tiktok/7134432224459427115.jpg" alt="TikTok video by @idkbritney_ using Rod212's &quot;For the Summer&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">For the Summer</span><b>@idkbritney_</b><span class="mono">2.5M views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7134365712986082606"><a href="https://www.tiktok.com/@orland.94/video/7134365712986082606" target="_blank" rel="noopener"><img src="media/tiktok/7134365712986082606.jpg" alt="TikTok video by @orland.94 using Rod212's &quot;For the Summer&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">For the Summer</span><b>@orland.94</b><span class="mono">484K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7450520125406498053"><a href="https://www.tiktok.com/@fnleak/video/7450520125406498053" target="_blank" rel="noopener"><img src="media/tiktok/7450520125406498053.jpg" alt="TikTok video by @fnleak using Rod212's &quot;Unseen Dreams&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">Unseen Dreams</span><b>@fnleak</b><span class="mono">351K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7526981287609896223"><a href="https://www.tiktok.com/@laslocurasdedos/video/7526981287609896223" target="_blank" rel="noopener"><img src="media/tiktok/7526981287609896223.jpg" alt="TikTok video by @laslocurasdedos using Rod212's &quot;Monday&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">Monday</span><b>@laslocurasdedos</b><span class="mono">283K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7450580949869415712"><a href="https://www.tiktok.com/@loredanag30/video/7450580949869415712" target="_blank" rel="noopener"><img src="media/tiktok/7450580949869415712.jpg" alt="TikTok video by @loredanag30 using Rod212's &quot;Unseen Dreams&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">Unseen Dreams</span><b>@loredanag30</b><span class="mono">273K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7134434510787202309"><a href="https://www.tiktok.com/@britneyillescas/video/7134434510787202309" target="_blank" rel="noopener"><img src="media/tiktok/7134434510787202309.jpg" alt="TikTok video by @britneyillescas using Rod212's &quot;For the Summer&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">For the Summer</span><b>@britneyillescas</b><span class="mono">205K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7134352269444746542"><a href="https://www.tiktok.com/@allisynmichelle/video/7134352269444746542" target="_blank" rel="noopener"><img src="media/tiktok/7134352269444746542.jpg" alt="TikTok video by @allisynmichelle using Rod212's &quot;For the Summer&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">For the Summer</span><b>@allisynmichelle</b><span class="mono">101K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7522200050039049490"><a href="https://www.tiktok.com/@msyheny0/video/7522200050039049490" target="_blank" rel="noopener"><img src="media/tiktok/7522200050039049490.jpg" alt="TikTok video by @msyheny0 using Rod212's &quot;Monday&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">Monday</span><b>@msyheny0</b><span class="mono">64K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+    <li class="tt-card" data-id="7524733971058429197"><a href="https://www.tiktok.com/@nataliasalasvvvv/video/7524733971058429197" target="_blank" rel="noopener"><img src="media/tiktok/7524733971058429197.jpg" alt="TikTok video by @nataliasalasvvvv using Rod212's &quot;Monday&quot;" loading="lazy" width="400" height="711"><span class="tt-meta"><span class="mono gold">Monday</span><b>@nataliasalasvvvv</b><span class="mono">23K views</span></span><span class="tt-play" aria-hidden="true"></span></a></li>
+  </ul>
+  <p class="tt-foot mono">Counts from the TikTok sound pages, November 2026. Use the sounds: <a href="https://www.tiktok.com/music/Monday-7520390404165519377" target="_blank" rel="noopener">Monday</a> <a href="https://www.tiktok.com/music/For-the-Summer-7119577143855564801" target="_blank" rel="noopener">For the Summer</a> <a href="https://www.tiktok.com/music/Unseen-Dreams-7438697624793171969" target="_blank" rel="noopener">Unseen Dreams</a></p>
 </section>
 
 
