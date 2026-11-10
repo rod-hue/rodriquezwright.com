@@ -52,6 +52,8 @@ footer a{color:var(--dim);text-decoration:none}
 .disco .go{display:block;padding:0 12px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);text-decoration:none}
 """
 
+CF_BEACON = "<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{\"token\": \"66caa5cb01f04b5fbafa3c153c4d7309\"}'></script>"  # Cloudflare Web Analytics (added Nov 10 2026)
+
 def esc(t):
     return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
@@ -129,6 +131,7 @@ def page(slug, title, desc, kicker, h1, dek, img, img_alt, body, sources, about_
 <div class="src"><h3>Sources</h3><ul>{src}</ul></div>
 </main>
 <footer><span>&copy; 2026 Rodriquez Wright II</span><span><a href="/">rodriquezwright.com</a> &middot; <a href="https://leooperations.com/team/rodriquez-wright-ii/">Leo Operations</a> &middot; <a href="https://www.washingtondcmagazine.com/author/rod/">Washington DC Magazine</a> &middot; <a href="https://about.me/rodriquezwrightii">About.me</a></span></footer>
+{CF_BEACON}
 </body>
 </html>
 """
