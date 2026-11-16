@@ -192,7 +192,7 @@ urls.append(page('campaigns', 'Rodriquez Wright II | Political Strategist and Ca
 """, [LEO, SJR, VOICE]))
 
 urls.append(page('publisher', 'Rodriquez Wright II | Founder and Editor-in-Chief, Washington DC Magazine',
-  'Rodriquez Wright II founded Washington DC Magazine and serves as its editor-in-chief: politics, business, culture and the people shaping the capital.',
+  'Rodriquez Wright II is the publisher and editor-in-chief of Washington DC Magazine, official media partner of the DC Chamber of Commerce 2026 Chamber\'s Choice Gala, with interviews of John Wall and Cora Masters Barry.',
   'The publisher', 'Washington DC <em>Magazine</em>', 'Founder and editor-in-chief of an independent magazine from the nation’s capital.',
   'img/hall.jpg', 'Rodriquez Wright II',
   """
@@ -202,6 +202,8 @@ urls.append(page('publisher', 'Rodriquez Wright II | Founder and Editor-in-Chief
 <h2>The editor's <em>role</em></h2>
 <p>As editor-in-chief, Wright sets the publication's editorial direction and standards, and he reports and photographs stories himself. He is a member of the National Association of Black Journalists.</p>
 <p>In September 2026 he covered the Congressional Black Caucus Foundation's 50th Phoenix Awards Dinner, which closed its Annual Legislative Conference. For that story he interviewed honoree Viola Davis and Representative Ilhan Omar of Minnesota about the next generation of Black political leadership.</p>
+<p>In November 2026 the magazine was the official media partner of the DC Chamber of Commerce's 2026 Chamber's Choice Awards &amp; Gala, held at the Marriott Marquis in Washington. Ahead of the gala Wright interviewed two of the night's honorees: former Washington Wizards All-Star <a href="https://www.washingtondcmagazine.com/be-a-good-person-first-john-wall-on-dc-his-mother-and-the-legacy-he-is-still-building/">John Wall</a>, the Community Icon honoree, and former D.C. First Lady <a href="https://www.washingtondcmagazine.com/cora-masters-barry-never-chased-a-legacy-at-81-she-looks-back-on-one/">Cora Masters Barry</a>, the Legacy Award honoree. He photographed the evening, including Mayor Muriel Bowser accepting the Lifetime Achievement in Public Service award, for the magazine's <a href="https://www.washingtondcmagazine.com/honoring-leadership-inspiring-progress-inside-the-dc-chambers-2026-chambers-choice-awards-and-gala/">gala coverage</a>.</p>
+<figure class="dcc"><img src="/dcchamber/rodriquez-wright-ii-john-wall-dc-chamber-gala-2026.jpg" width="1400" height="934" alt="Rodriquez Wright II with John Wall at the DC Chamber of Commerce 2026 Chamber's Choice Awards and Gala" loading="lazy" style="width:100%;height:auto;border-radius:6px"><figcaption>Rodriquez Wright II with John Wall at the 2026 Chamber's Choice Awards &amp; Gala.</figcaption></figure>
 <h2>Where campaigns meet <em>the newsroom</em></h2>
 <p>Wright came to publishing from campaigns, and the magazine reflects that: it covers power the way an organizer sees it, through the people on the ground as well as the officials at the podium. His reporting and photography appear on his <a href="https://www.washingtondcmagazine.com/author/rod/">author page</a>.</p>
 """, [WDCM, ('Washington DC Magazine', 'https://www.washingtondcmagazine.com/')]))
